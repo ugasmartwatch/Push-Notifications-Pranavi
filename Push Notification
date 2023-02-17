@@ -1,0 +1,41 @@
+var Layout = require("Layout");
+var yes = 0;
+var no = 0;
+var layout = new Layout( {
+  type:"v", c: [
+    {type:"txt", font:"6x8:1", label:"Did you go on a walk today?", id:"label"}, {type:"txt", font:"6x8:4", label:" ", id:"labelY"},
+    {type:"btn", font:"6x8:2", label:"Yes", cb: w => setLabel("Yes") }, 
+    {type:"txt", font:"6x8:4", label:" ", id:"labelY"},
+    {type:"btn", font:"6x8:2", label:"No", cb: l=>setLabel("No") }
+  ]
+});
+
+function setLabel(x) {
+//  layout.label.label = x;
+  if (x == "No") {
+  g.fillRect(0, 0, 175, 175);
+  g.setColor("#FDFDFD");  
+  g.drawString("Go take your \n pet on a walk!", 80, 80, false);
+    no++;
+    console.log(no);
+    setTimeout();
+  }
+  
+  if (x == "Yes") {
+    g.fillRect(0, 0, 175, 175);
+    g.setColor("#FDFDFD");  
+    g.drawString("Yay!! \n Good job!!", 80, 85, false);
+    yes++;
+    console.log(yes);
+    setTimeout();
+  }
+
+  layout.render();
+}
+
+
+g.clear();
+layout.render();
+
+
+
