@@ -13,12 +13,13 @@ var layout = new Layout( {
 function setLabel(x) {
 //  layout.label.label = x;
   if (x == "No") {
-  g.fillRect(0, 0, 175, 175);
-  g.setColor("#FDFDFD");  
-  g.drawString("Go take your \n pet on a walk!", 80, 80, false);
+    g.fillRect(0, 0, 175, 175);
+    g.setColor("#FDFDFD");  
+    g.drawString("Go take your \n pet on a walk!", 80, 80, false);
     no++;
     console.log(no);
-    setTimeout();
+    setTimeout(() => {load();}, 2000);
+    layout.style.visibility = "hidden";
   }
   
   if (x == "Yes") {
@@ -27,7 +28,9 @@ function setLabel(x) {
     g.drawString("Yay!! \n Good job!!", 80, 85, false);
     yes++;
     console.log(yes);
-    setTimeout();
+    setTimeout(() => {load();}, 2000);
+    layout.style.visibility = "hidden";
+
   }
 
   layout.render();
@@ -36,6 +39,4 @@ function setLabel(x) {
 
 g.clear();
 layout.render();
-
-
 
