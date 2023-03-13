@@ -10,30 +10,49 @@ var layout = new Layout( {
   ]
 });
 
+var surveyQ = {
+  "q": "Did you go on a walk today?",
+	"answer": 0,
+  "timeAsked": 0,
+  "timeAnswered": 0
+};
+
+/*
+console.log(surveyQ);
+surveyQ.q = "Hi";
+console.log(surveyQ.q);
+console.log(surveyQ);
+*/
+
 function setLabel(x) {
 //  layout.label.label = x;
   if (x == "No") {
+    var unixNo = Math.round(new Date()/1000);
+   // surveyQ.timeAnswered = unixNo;
+  var myDate = new Date(unixNo *1000);
+  var time = myDate.toString();
+    surveyQ.timeAnswered = time;
+    surveyQ.answer = "no";
+    console.log(surveyQ);
     g.fillRect(0, 0, 175, 175);
     g.setColor("#FDFDFD");  
     g.drawString("Go take your \n pet on a walk!", 80, 80, false);
-    no++;
-    console.log(no);
     setTimeout(() => {load();}, 2000);
-    layout.style.visibility = "hidden";
+    layout = "hidden";
   }
   
   if (x == "Yes") {
+    var unixYes = Math.round(new Date()/1000);
+    surveyQ.timeAnswered = unixYes;
+    surveyQ.answer = "yes";
+    console.log(surveyQ);
     g.fillRect(0, 0, 175, 175);
     g.setColor("#FDFDFD");  
     g.drawString("Yay!! \n Good job!!", 80, 85, false);
-    yes++;
-    console.log(yes);
     setTimeout(() => {load();}, 2000);
-    layout.style.visibility = "hidden";
-
+    layout = "hidden";
   }
 
-  layout.render();
 }
 
 
