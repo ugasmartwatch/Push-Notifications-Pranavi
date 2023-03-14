@@ -40,7 +40,7 @@ function setLabel(x) {
     g.drawString("Go take your \n pet on a walk!", 80, 80, false);
     setTimeout(() => {load();}, 2000);
     layout = "hidden";
-
+    require("Storage").writeJSON("surveyData.json", [{"q": "Did you go on a walk today?", "answer": "no", "timeAnswered": timeNo}]);   
   }
   
   if (x == "Yes") {
@@ -55,10 +55,11 @@ function setLabel(x) {
     g.drawString("Yay!! \n Good job!!", 80, 85, false);
     setTimeout(() => {load();}, 2000);
     layout = "hidden";
+    require("Storage").writeJSON("surveyData.json", [{"q": "Did you go on a walk today?", "answer": "yes", "timeAnswered": timeYes}]);    
   }
 
 }
 
-
 g.clear();
 layout.render();
+
