@@ -11,10 +11,11 @@ var layout = new Layout( {
 });
 
 var surveyQ = {
-  "q": "Did you go on a walk today?",
+  "q":"Did you go on a walk today?",
 	"answer": 0,
-  "timeAsked": 0,
+  //"timeAsked": 0,
   "timeAnswered": 0
+  
 };
 
 /*
@@ -28,19 +29,25 @@ function setLabel(x) {
 //  layout.label.label = x;
   if (x == "No") {
     var unixNo = Math.round(new Date()/1000);
-    surveyQ.timeAnswered = unixNo;
+    var gmtNo = new Date( unixNo *1000);
+    var timeNo = gmtNo.toString();
+    surveyQ.timeAnswered = timeNo;
     surveyQ.answer = "no";
     console.log(surveyQ);
+    //surveyQ.push();
     g.fillRect(0, 0, 175, 175);
     g.setColor("#FDFDFD");  
     g.drawString("Go take your \n pet on a walk!", 80, 80, false);
     setTimeout(() => {load();}, 2000);
     layout = "hidden";
+
   }
   
   if (x == "Yes") {
     var unixYes = Math.round(new Date()/1000);
-    surveyQ.timeAnswered = unixYes;
+    var gmtYes = new Date( unixYes *1000);
+    var timeYes = gmtYes.toString();
+    surveyQ.timeAnswered = timeYes;
     surveyQ.answer = "yes";
     console.log(surveyQ);
     g.fillRect(0, 0, 175, 175);
