@@ -28,10 +28,7 @@ function setLabel(x) {
 //  layout.label.label = x;
   if (x == "No") {
     var unixNo = Math.round(new Date()/1000);
-   // surveyQ.timeAnswered = unixNo;
-  var myDate = new Date(unixNo *1000);
-  var time = myDate.toString();
-    surveyQ.timeAnswered = time;
+    surveyQ.timeAnswered = unixNo;
     surveyQ.answer = "no";
     console.log(surveyQ);
     g.fillRect(0, 0, 175, 175);
@@ -58,4 +55,3 @@ function setLabel(x) {
 
 g.clear();
 layout.render();
-
